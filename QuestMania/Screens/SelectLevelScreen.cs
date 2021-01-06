@@ -9,25 +9,56 @@ namespace QuestMania.States
 {
     class SelectLevelScreen : Screen
     {
-        private Button levelOneButton;
+        private Button levelOneButton, backButton;
+        private Label titleLabel;
+        private List<Component> components;
         public override State State => State.Select;
 
         public SelectLevelScreen() : base()
         {
-            levelOneButton = new Button("Level 1", new Vector2(1280 / 4, 720 / 4), buttonTexture, buttonFont);
+            int centerX = Global.ScreenWidth / 2 - buttonTexture.Width / 2;
+            int centerY = Global.ScreenHeight / 2 - buttonTexture.Height / 2;
+            levelOneButton = new Button("Level 1", new Vector2(centerX, centerY), buttonTexture, buttonFont);
+            backButton = new Button("Back", new Vector2(20, 10), buttonTexture, buttonFont);
+
+            string title = "Select a level";
+            titleLabel = new Label(title, new Vector2((Global.ScreenWidth / 2) - (titleFont.MeasureString(title).X / 2), 150), titleFont);
+
+            components = new List<Component>()
+            {
+                levelOneButton,
+                backButton,
+                titleLabel
+            };
+
 
             levelOneButton.Click += LevelOneButton_Click;
+            backButton.Click += BackButton_Click;
         }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            Platformer.ScreenManager.SwitchToNextScreen(State.Menu);
+        }
+
         public override void Update(GameTime gameTime)
         {
-            levelOneButton.Update();
+            foreach (var component in components)
+            {
+                component.Update();
+            }
         }
 
         public override void Draw()
         {
             Platformer.graphics.GraphicsDevice.Clear(Color.BurlyWood);
             Global.SpriteBatch.Begin();
-            levelOneButton.Draw();
+
+            foreach (var component in components)
+            {
+                component.Draw();
+            }
+
             Global.SpriteBatch.End();
         }
 

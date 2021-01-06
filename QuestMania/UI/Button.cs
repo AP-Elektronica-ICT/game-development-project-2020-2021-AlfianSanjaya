@@ -21,7 +21,6 @@ namespace QuestMania.UI
         public event EventHandler Click;
         public bool Clicked { get; private set; }
         public Color TextColor { get; set; }
-        public Vector2 Position { get; set; }
         public Rectangle Rectangle
         {
             get

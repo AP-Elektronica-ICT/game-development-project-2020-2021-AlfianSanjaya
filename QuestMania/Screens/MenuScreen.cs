@@ -9,6 +9,8 @@ namespace QuestMania.States
     public class MenuScreen : Screen
     {
         private Button playButton, quitButton;
+        private Label titleLabel;
+
         private Texture2D backgroundTexture;
         private Game game;
         private List<Component> components;
@@ -30,10 +32,15 @@ namespace QuestMania.States
                                     buttonFont);
             quitButton = new Button("Quit", new Vector2(centerX, centerY + (buttonTexture.Height * 3 / 2)), buttonTexture, buttonFont);
 
+            string title = "Quest Mania";
+            titleLabel = new Label(title, new Vector2((Global.ScreenWidth / 2) - (titleFont.MeasureString(title).X / 2), 150), titleFont);
+
+
             components = new List<Component>()
             {
                playButton,
-               quitButton
+               quitButton,
+               titleLabel
             };
 
 
@@ -64,12 +71,6 @@ namespace QuestMania.States
                 SpriteEffects.None,
                 0.0f
             );
-
-            var text = "PLATFORMER";
-            var x = (Global.ScreenWidth / 2) - (titleFont.MeasureString(text).X / 2);
-            var y = 150;
-
-            Global.SpriteBatch.DrawString(titleFont, text, new Vector2(x, y), Color.Black);
 
             foreach (var component in components)
             {
