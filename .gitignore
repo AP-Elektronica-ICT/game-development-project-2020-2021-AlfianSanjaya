@@ -338,3 +338,12 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+*.xnb
+
+QuestMania/Content/obj/Windows/Content/.mgstats
+
+*.cache
+
+*.dll
+
+*.mgcontent
