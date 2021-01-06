@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Background/background-1.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Background/background-test.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/block.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Components/DefaultTile.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Components/Dirt.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Components/Dirt2.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Dummy.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Dummy2.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Dummy3.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Dummy4.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Enemy/slime-idle-sheet.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Fonts/DefaultFont.spritefont</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Fonts/TitleFont.spritefont</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/GUI/button.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/HitboxTest.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/idle-sheet-1.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Player/attack-sheet.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Player/crouch-sheet.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Player/idle-sheet.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Player/idle-sheet-small.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Player/Jump.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Player/jump-small.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Player/run-sheet.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Player/run-sheet-small.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Tile.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Tile2.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Tile3.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>
