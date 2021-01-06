@@ -30,10 +30,6 @@ namespace QuestMania.Animation2D
             frames = new List<AnimationFrame>();
             SpriteSheetTexture = texture;
 
-            //FrameWidth = 65;
-            //FrameHeight = 90;
-            int frameHeight = SpriteSheetTexture.Height;
-
             // Auto add key frames 
             int xOffset = 0;
             for (int i = 0; i < numberOfFrames; i++)

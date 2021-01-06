@@ -18,11 +18,6 @@ namespace QuestMania.States
             Global.World.LevelOne.LoadWorld(FileManager.GetPath(@"Content\Levels\map-1.json"),
                                             Global.Content.Load<Texture2D>("Background/background-test"));
 
-            LoadContent();
-        }
-
-        public void LoadContent()
-        {
             hero.LoadContent();
         }
 

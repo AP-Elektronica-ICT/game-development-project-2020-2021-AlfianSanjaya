@@ -68,7 +68,7 @@ namespace QuestMania
             Position = new Vector2(64 * 2, 64 * 3);
             Velocity = new Vector2(0, 0);
 
-            int yOffset = 8;
+            int yOffset = 0;
             collisionRectangle = new Rectangle((int)Position.X, (int)Position.Y, Animation.FrameWidth, Animation.FrameHeight - yOffset);
         }
 
