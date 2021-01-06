@@ -4,8 +4,10 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Background/background-1.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Background/background-test.png</File>
+    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/block.png</File>
     <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Components/DefaultTile.png</File>
-    <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Components/Dirt.png</File>
     <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Components/Dirt2.png</File>
     <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Dummy.png</File>
     <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Dummy2.png</File>
@@ -30,6 +32,8 @@
     <File>C:/Users/32495/Desktop/GameDev/QuestMania/QuestMania/Content/Tile3.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
