@@ -16,7 +16,7 @@ namespace QuestMania.States
 
         protected List<Component> components;
 
-        public int LevelID { get; set; }
+        public int SelectLevel { get; set; }
 
         public abstract State State { get;}
 

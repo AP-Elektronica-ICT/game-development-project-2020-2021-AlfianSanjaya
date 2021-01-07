@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using QuestMania.Input;
 using QuestMania.LevelDesign;
 using QuestMania.UI;
 using System.Collections.Generic;
@@ -10,15 +11,22 @@ namespace QuestMania.States
     {
         private Button backButton;
         //private Hero hero;
-        private World world;
 
-        private List<World> worlds;
+        private World[] worlds =
+        {
+            new World(new Hero(new KeyboardReader(), new Vector2(Global.World.TileWidth * 1, Global.World.TileHeight * 3)), new Level(1)),
+            new World(new Hero(new KeyboardReader(), new Vector2(Global.World.TileWidth * 0, Global.World.TileHeight * 8)), new Level(2))
+        };
+
+        private World currentWorld;
+
+        //private List<World> worlds;
 
         public override State State => State.Game;
 
         public GameScreen() : base()
         {
-            worlds = new List<World>();
+            //worlds = new List<World>();
             //hero = Factory.CreateHero();
 
             //Global.World.LevelOne = new Level();
@@ -47,38 +55,71 @@ namespace QuestMania.States
                 component.Update();
             }
 
-            world.Update(gameTime);
+            if (currentWorld == null)
+            {
+                if (SelectLevel != -1)
+                {
+                    currentWorld = worlds[SelectLevel - 1];
+                }
+            }
+            else
+            {
+                if (SelectLevel != currentWorld.level.ID)
+                {
+                    currentWorld = worlds[SelectLevel - 1];
+                }
+            }
+            currentWorld.Update(gameTime);
         }
 
         public override void Draw()
         {
-            if (world != null && world.LevelID != LevelID)
+            //if (world != null && world.LevelID != LevelID)
+            //{
+            //    world = null;
+            //    world = new World(LevelID);
+            //}
+
+            //if (world == null)
+            //{
+            //    world = new World(LevelID);
+            //}
+
+            //if (currentWorld == null)
+            //{
+            //    if (SelectLevel != -1)
+            //    {
+            //        currentWorld = worlds[SelectLevel - 1]
+            //    }
+            //}
+            //else
+            //{
+            //    if (SelectLevel != currentWorld.level.ID)
+            //    {
+            //        currentWorld = worlds[SelectLevel - 1];
+            //    }
+            //}
+
+            if (currentWorld != null)
             {
-                world = null;
-                world = new World(LevelID);
+                Platformer.graphics.GraphicsDevice.Clear(Color.BurlyWood);
+
+                Global.SpriteBatch.Begin(transformMatrix: Global.Camera.Transform);
+
+                currentWorld.Draw();
+
+                Global.SpriteBatch.End();
+
+                Global.SpriteBatch.Begin();
+
+                foreach (var component in components)
+                {
+                    component.Draw();
+                }
+
+                Global.SpriteBatch.End();
             }
 
-            if (world == null)
-            {
-                world = new World(LevelID);
-            }
-
-            Platformer.graphics.GraphicsDevice.Clear(Color.BurlyWood);
-
-            Global.SpriteBatch.Begin(transformMatrix: Global.Camera.Transform);
-
-            world.Draw();
-
-            Global.SpriteBatch.End();
-
-            Global.SpriteBatch.Begin();
-
-            foreach (var component in components)
-            {
-                component.Draw();
-            }
-
-            Global.SpriteBatch.End();
         }
 
 

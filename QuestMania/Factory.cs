@@ -1,4 +1,5 @@
-﻿using QuestMania.Input;
+﻿using Microsoft.Xna.Framework;
+using QuestMania.Input;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,9 +13,9 @@ namespace QuestMania
         //    return new CollisionTile(new Rectangle(x * 64, y * 64, 64, 64), tileToLoad);
         //}
 
-        public static Hero CreateHero()
-        {
-            return new Hero(new KeyboardReader());
-        }
+        //public static Hero CreateHero(Vector2 spawnPosition)
+        //{
+        //    return new Hero(new KeyboardReader(), spawnPosition);
+        //}
     }
 }

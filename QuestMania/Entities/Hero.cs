@@ -61,11 +61,11 @@ namespace QuestMania
         public bool HasJumped { get; set; } = true;
         #endregion
 
-        public Hero(IInputReader newInputReader) 
+        public Hero(IInputReader newInputReader, Vector2 spawnPosition) 
         { 
             inputReader = newInputReader;
             Orientation = new Vector2(1, 0);
-            Position = new Vector2(64 * 0, 64 * 0);
+            Position = spawnPosition;
             Velocity = new Vector2(0, 0);
 
             int yOffset = 0;
@@ -107,14 +107,11 @@ namespace QuestMania
         /// </summary>
         public void LoadCommands()
         {
-            foreach (IGameCommand command in Global.Hero.GameCommands)
-            {
-                command.SetContext(this);
-                if (command is MoveCommand)
-                    moveCommand = command;
-                if (command is JumpCommand)
-                    jumpCommand = command;
-            }
+            moveCommand = new MoveCommand();
+            jumpCommand = new JumpCommand();
+
+            moveCommand.SetContext(this);
+            jumpCommand.SetContext(this);
         }
 
         #region Update
@@ -156,26 +153,26 @@ namespace QuestMania
         {
             if (collisionRectangle.IsTouchingTop(obstacle))
             {
-                Debug.WriteLine("TOP");
+                Debug.WriteLine("HIT BOTTOM");
                 Position.Y = obstacle.Y - collisionRectangle.Height;
                 Velocity.Y = 0f;
                 HasJumped = false;                
             }
             else if (collisionRectangle.IsTouchingBottom(obstacle))
             {
-                Debug.WriteLine("BOTTOM");
+                Debug.WriteLine("HIT TOP");
                 Velocity.Y = 1f;
             }
 
             if (collisionRectangle.IsTouchingLeft(obstacle))
             {
-                Debug.WriteLine("Collision from LEFT <--");
+                Debug.WriteLine("Collision from RIGHT -->");
                 Position.X = obstacle.X - collisionRectangle.Width - 1;
                 
             }
             else if (collisionRectangle.IsTouchingRight(obstacle))
             {
-                Debug.WriteLine("Collision from RIGHT -->");
+                Debug.WriteLine("Collision from LEFT <--");
                 Position.X = obstacle.X + obstacle.Width + 1;
             }
 
@@ -256,6 +253,7 @@ namespace QuestMania
             //Debug.WriteLine($"Position { (int)Position.X / 64},{ (int)Position.Y / 64}");
 
             Debug.WriteLine(Velocity);
+            Debug.WriteLine(Position);
         }
 
         #region Draw

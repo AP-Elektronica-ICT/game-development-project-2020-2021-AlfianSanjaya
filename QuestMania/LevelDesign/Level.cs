@@ -13,7 +13,14 @@ namespace QuestMania.LevelDesign
         public int LevelWidth;
         public int LevelHeight;
 
+        public int ID { get; set; }
+
         public byte[,] TileArray { get; set; }
+
+        public Level(int id)
+        {
+            ID = id;
+        }
 
         public void LoadWorld(string path, Texture2D newBackgroundTexture)
         {

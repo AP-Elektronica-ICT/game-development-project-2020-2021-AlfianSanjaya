@@ -11,20 +11,19 @@ namespace QuestMania
     {
         private Hero hero;
 
-        public int LevelID { get; set; }
-        private Level level;
+        //public int LevelID { get; set; }
+        public Level level;
 
         //private Camera camera;
 
-        public World(int id)
+        public World(Hero player, Level newLevel)
         {
-            hero = Factory.CreateHero();
-
+            hero = player;
             hero.LoadContent();
             // Create level based on ID
-            LevelID = id;
-            level = new Level();
-            level.LoadWorld(FileManager.GetPath(@$"Content\Levels\map-{ LevelID }.json"),
+            //LevelID = id;
+            level = newLevel;
+            level.LoadWorld(FileManager.GetPath(@$"Content\Levels\map-{ level.ID }.json"),
                             Global.Content.Load<Texture2D>("Background/background-test"));
         }
 

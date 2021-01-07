@@ -24,7 +24,7 @@ namespace QuestMania.States
                 {
                     activeScreen = screen;
                     if (activeScreen is GameScreen && levelID != -1)
-                        activeScreen.LevelID = levelID;
+                        activeScreen.SelectLevel = levelID;
                 }
             }
             Debug.WriteLine("Switch screen to " + activeScreen.State);
