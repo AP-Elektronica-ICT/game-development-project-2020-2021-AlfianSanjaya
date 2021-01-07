@@ -23,6 +23,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Background\" />
-    <Folder Include="Content\Components\" />
+    <Folder Include="Content\Blocks\" />
   </ItemGroup>
 </Project>

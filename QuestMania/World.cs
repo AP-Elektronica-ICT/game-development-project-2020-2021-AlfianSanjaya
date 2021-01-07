@@ -30,22 +30,37 @@ namespace QuestMania
 
         public void Update(GameTime gameTime)
         {
-            Hero.Update(gameTime);
+            
+            Global.Camera.Update(Hero.Position, Level.LevelWidth, Level.LevelHeight);
+            
 
-            // Check for collision
-            foreach (var block in Level.Blocks)
+
+
+            if (Hero.IsDead == false)
             {
-                if (block is CollisionTile)
-                    Hero.CheckCollision(block.CollisionRectangle, Level.LevelWidth);
-                else if (block is Flag)
+                // Check for collision
+                foreach (var block in Level.Blocks)
                 {
-                    if (Hero.CollisionRectangle.Intersects(block.CollisionRectangle))
+                    if (block is CollisionTile)
+                        Hero.CheckCollision(block.CollisionRectangle, Level.LevelWidth);
+                    if (block is Flag)
                     {
-                        Victory = true;
-                        Hero.SetToSpawn();
+                        if (Hero.CollisionRectangle.Intersects(block.CollisionRectangle))
+                        {
+                            Victory = true;
+                            Hero.SetToSpawn();
+                        }
+                    }
+                    if (block is Spike)
+                    {
+                        if (Hero.CollisionRectangle.Intersects(block.CollisionRectangle))
+                        {
+                            GameOver = true;
+                            Hero.IsDead = true;
+                            Hero.SetToSpawn();
+                        }
                     }
                 }
-                Global.Camera.Update(Hero.Position, Level.LevelWidth, Level.LevelHeight);
             }
 
             // Check if hero is dead
@@ -56,7 +71,8 @@ namespace QuestMania
                 Hero.IsDead = false;
                 Hero.SetToSpawn();
             }
-            
+
+            Hero.Update(gameTime);
         }
 
         public void Draw()

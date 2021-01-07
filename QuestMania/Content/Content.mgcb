@@ -37,7 +37,7 @@
 /processorParam:TextureFormat=Color
 /build:Background/background-test.png
 
-#begin Components/DefaultTile.png
+#begin Blocks/DefaultTile.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -47,9 +47,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Components/DefaultTile.png
+/build:Blocks/DefaultTile.png
 
-#begin Components/Dirt2.png
+#begin Blocks/Dirt2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -59,9 +59,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Components/Dirt2.png
+/build:Blocks/Dirt2.png
 
-#begin Components/flag.png
+#begin Blocks/flag.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -71,7 +71,19 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Components/flag.png
+/build:Blocks/flag.png
+
+#begin Blocks/spike.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Blocks/spike.png
 
 #begin Enemy/slime-idle-sheet.png
 /importer:TextureImporter

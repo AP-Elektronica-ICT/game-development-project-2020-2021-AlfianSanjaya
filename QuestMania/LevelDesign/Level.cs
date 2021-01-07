@@ -44,21 +44,20 @@ namespace QuestMania.LevelDesign
                     int number = TileArray[y, x];
 
                     Block block = null;
-                    string tileToLoad = "";
                     if (number > 0)
                     {
                         switch (number)
                         {
-                            case 1:
-                                //tileToLoad = "DefaultTile";
+                            case 1:                           
                                 block = new CollisionTile(new Rectangle(x * Global.World.TileWidth, y * Global.World.TileHeight, Global.World.TileWidth, Global.World.TileHeight), "DefaultTile");
                                 break;
                             case 2:
-                                //tileToLoad = "Dirt2";
                                 block = new CollisionTile(new Rectangle(x * Global.World.TileWidth, y * Global.World.TileHeight, Global.World.TileWidth, Global.World.TileHeight), "Dirt2");
                                 break;
                             case 3:
-                                //tileToLoad = "flag";
+                                block = new Spike(new Rectangle(x * Global.World.TileWidth, y * Global.World.TileHeight, Global.World.TileWidth, Global.World.TileHeight / 2), "Spike");
+                                break;
+                            case 4:
                                 block = new Flag(new Rectangle(x * Global.World.TileWidth, y * Global.World.TileHeight, Global.World.TileWidth, Global.World.TileHeight), "Flag");
                                 break;
                         }

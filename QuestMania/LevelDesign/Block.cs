@@ -11,7 +11,7 @@ namespace QuestMania.LevelDesign
 
         public Texture2D texture { get; set; }
         public Vector2 Position;
-        public Rectangle CollisionRectangle { get; protected set; }
+        public Rectangle CollisionRectangle;
 
         public Block(Rectangle rectangle, string tileName)
         {
@@ -28,7 +28,7 @@ namespace QuestMania.LevelDesign
 
         public void LoadTile()
         {
-            texture = Global.Content.Load<Texture2D>($"Components/{ name }");
+            texture = Global.Content.Load<Texture2D>($"Blocks/{ name }");
         }
 
         public void Draw()
@@ -49,6 +49,14 @@ namespace QuestMania.LevelDesign
     {
         public Flag(Rectangle rectangle, string tileName) : base(rectangle, tileName)
         {
+        }
+    }
+
+    public class Spike : Block
+    {
+        public Spike(Rectangle rectangle, string tileName) : base(rectangle, tileName)
+        {
+            CollisionRectangle.Y += Global.World.TileHeight / 2;
         }
     }
 }
