@@ -104,3 +104,4 @@ C:\Users\32495\Desktop\GameDev\QuestMania\QuestMania\bin\Debug\netcoreapp3.1\Con
 C:\Users\32495\Desktop\GameDev\QuestMania\QuestMania\bin\Debug\netcoreapp3.1\Content\Fonts\TitleFont.xnb
 C:\Users\32495\Desktop\GameDev\QuestMania\QuestMania\bin\Debug\netcoreapp3.1\Content\Components\DefaultTile.xnb
 C:\Users\32495\Desktop\GameDev\QuestMania\QuestMania\bin\Debug\netcoreapp3.1\Content\Components\Dirt2.xnb
+C:\Users\32495\Desktop\GameDev\QuestMania\QuestMania\bin\Debug\netcoreapp3.1\Content\Components\flag.xnb

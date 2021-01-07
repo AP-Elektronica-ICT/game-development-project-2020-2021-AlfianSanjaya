@@ -7,7 +7,7 @@ namespace QuestMania.LevelDesign
 {
     public class Level
     {
-        public List<Tile> Tiles { get; } = new List<Tile>();
+        public List<Block> Blocks { get; } = new List<Block>();
 
         private Texture2D backgroundTexture;
         public int LevelWidth;
@@ -42,20 +42,30 @@ namespace QuestMania.LevelDesign
                 for (int y = 0; y < TileArray.GetLength(0); y++)
                 {
                     int number = TileArray[y, x];
+
+                    Block block = null;
                     string tileToLoad = "";
                     if (number > 0)
                     {
                         switch (number)
                         {
                             case 1:
-                                tileToLoad = "DefaultTile";
+                                //tileToLoad = "DefaultTile";
+                                block = new CollisionTile(new Rectangle(x * Global.World.TileWidth, y * Global.World.TileHeight, Global.World.TileWidth, Global.World.TileHeight), "DefaultTile");
                                 break;
                             case 2:
-                                tileToLoad = "Dirt2";
+                                //tileToLoad = "Dirt2";
+                                block = new CollisionTile(new Rectangle(x * Global.World.TileWidth, y * Global.World.TileHeight, Global.World.TileWidth, Global.World.TileHeight), "Dirt2");
+                                break;
+                            case 3:
+                                //tileToLoad = "flag";
+                                block = new Flag(new Rectangle(x * Global.World.TileWidth, y * Global.World.TileHeight, Global.World.TileWidth, Global.World.TileHeight), "Flag");
                                 break;
                         }
-                        Tiles.Add(new CollisionTile(new Rectangle(x * Global.World.TileWidth, y * Global.World.TileHeight, Global.World.TileWidth, Global.World.TileHeight), tileToLoad));
+                        Blocks.Add(block);
                     }
+
+                    
                 }
             }
         }
@@ -63,7 +73,7 @@ namespace QuestMania.LevelDesign
         public void DrawWorld()
         {
             Global.SpriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, LevelWidth, LevelHeight), Color.White);
-            foreach (var tile in Tiles)
+            foreach (var tile in Blocks)
             {
                 tile.Draw();
             }

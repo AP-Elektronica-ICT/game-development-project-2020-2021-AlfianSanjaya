@@ -32,9 +32,10 @@ namespace QuestMania
             Hero.Update(gameTime);
 
             // Check for collision
-            foreach (var tile in Level.Tiles)
+            foreach (var tile in Level.Blocks)
             {
-                Hero.CheckCollision(tile.CollisionRectangle, Level.LevelWidth);
+                if (tile is CollisionTile)
+                    Hero.CheckCollision(tile.CollisionRectangle, Level.LevelWidth);
                 Global.Camera.Update(Hero.Position, Level.LevelWidth, Level.LevelHeight);
             }
 
