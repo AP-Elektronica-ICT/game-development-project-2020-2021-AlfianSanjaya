@@ -2,8 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using QuestMania.UI;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace QuestMania.States
 {
@@ -13,12 +11,10 @@ namespace QuestMania.States
         private Label titleLabel;
 
         private Texture2D backgroundTexture;
-        
-
-        public override State State => State.Select;
 
         public SelectLevelScreen() : base()
         {
+            State = State.Select;
             backgroundTexture = Global.Content.Load<Texture2D>("Background/background-1");
 
             int centerX = Global.ScreenWidth / 2 - buttonTexture.Width / 2;

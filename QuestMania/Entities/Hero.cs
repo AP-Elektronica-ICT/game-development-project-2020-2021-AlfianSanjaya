@@ -12,21 +12,6 @@ namespace QuestMania
 {
     public class Hero
     {
-        //#region Singleton
-        //private static hero instance;
-        //public static hero GetInstance
-        //{
-        //    get
-        //    {
-        //        if (instance == null)
-        //        {
-        //            instance = new hero(new KeyboardReader());
-        //        }
-        //        return instance;
-        //    }
-        //}
-        //#endregion
-
         #region Fields
         private float gravity = 20.0f;
 
@@ -55,6 +40,7 @@ namespace QuestMania
         public Vector2 Position;
         public Vector2 Velocity;
         public Vector2 Orientation;
+        public Vector2 SpawnPosition;
         #endregion
         public float MaxJumpingHeight { get; } = 10f;
         public float JumpForce { get; } = -10f;
@@ -66,10 +52,16 @@ namespace QuestMania
             inputReader = newInputReader;
             Orientation = new Vector2(1, 0);
             Position = spawnPosition;
+            SpawnPosition = spawnPosition;
             Velocity = new Vector2(0, 0);
 
             int yOffset = 0;
             collisionRectangle = new Rectangle((int)Position.X, (int)Position.Y, Animation.FrameWidth, Animation.FrameHeight - yOffset);
+        }
+
+        public void SetToSpawn()
+        {
+            Position = SpawnPosition;
         }
 
         public void LoadContent()
@@ -151,26 +143,26 @@ namespace QuestMania
 
         public void CheckCollision(Rectangle obstacle, int mapWidth)
         {
-            if (collisionRectangle.IsTouchingTop(obstacle))
+            if (collisionRectangle.IsTouchingTopOf(obstacle))
             {
                 Debug.WriteLine("HIT BOTTOM");
                 Position.Y = obstacle.Y - collisionRectangle.Height;
                 Velocity.Y = 0f;
                 HasJumped = false;                
             }
-            else if (collisionRectangle.IsTouchingBottom(obstacle))
+            else if (collisionRectangle.IsTouchingBottomOf(obstacle))
             {
                 Debug.WriteLine("HIT TOP");
                 Velocity.Y = 1f;
             }
 
-            if (collisionRectangle.IsTouchingLeft(obstacle))
+            if (collisionRectangle.IsTouchingLeftOf(obstacle))
             {
                 Debug.WriteLine("Collision from RIGHT -->");
                 Position.X = obstacle.X - collisionRectangle.Width - 1;
                 
             }
-            else if (collisionRectangle.IsTouchingRight(obstacle))
+            else if (collisionRectangle.IsTouchingRightOf(obstacle))
             {
                 Debug.WriteLine("Collision from LEFT <--");
                 Position.X = obstacle.X + obstacle.Width + 1;
@@ -260,16 +252,20 @@ namespace QuestMania
         public void Draw()
         {
             //Load current animation based on the current state
-            LoadCurrentAnimation();
-
-            SpriteEffects flip = SpriteEffects.None;
-            if (Orientation.X == -1)
+            //LoadCurrentAnimation();
+            
+            if (animationPlayer.CurrentAnimation != null)
             {
-                flip = SpriteEffects.FlipHorizontally;
+                SpriteEffects flip = SpriteEffects.None;
+                if (Orientation.X == -1)
+                {
+                    flip = SpriteEffects.FlipHorizontally;
+                }
+
+                // Draw character animation
+                animationPlayer.PlayAnimation(Position, flip);
             }
 
-            // Draw character animation
-            animationPlayer.PlayAnimation(Position, flip);
         }
         #endregion
     }

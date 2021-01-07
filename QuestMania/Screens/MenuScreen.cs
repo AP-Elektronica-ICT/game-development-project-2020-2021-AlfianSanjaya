@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using QuestMania.UI;
 using System;
-using System.Collections.Generic;
 
 namespace QuestMania.States
 {
@@ -14,10 +13,9 @@ namespace QuestMania.States
         private Texture2D backgroundTexture;
         private Game game;
 
-        public override State State => State.Menu;
-
         public MenuScreen(Game newGame) : base()
         {
+            State = State.Menu;
             game = newGame;
             
 

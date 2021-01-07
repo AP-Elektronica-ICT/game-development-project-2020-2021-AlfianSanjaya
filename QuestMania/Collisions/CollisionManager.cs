@@ -7,7 +7,7 @@ namespace QuestMania.Collisions
 {
     public static class CollisionManager
     {
-        public static bool IsTouchingTop(this Rectangle r1, Rectangle obstacle)
+        public static bool IsTouchingTopOf(this Rectangle r1, Rectangle obstacle)
         {
             return (r1.Bottom >= (obstacle.Top - 1) &&
                     r1.Bottom <= obstacle.Top + (obstacle.Height / 2) &&
@@ -15,7 +15,7 @@ namespace QuestMania.Collisions
                     r1.Left <= obstacle.Right - (obstacle.Width / 5));
         }
 
-        public static bool IsTouchingBottom(this Rectangle r1, Rectangle obstacle)
+        public static bool IsTouchingBottomOf(this Rectangle r1, Rectangle obstacle)
         {
             return (r1.Top <= obstacle.Bottom + (obstacle.Height / 5) &&
                     r1.Top >= obstacle.Bottom - 1 &&
@@ -23,7 +23,7 @@ namespace QuestMania.Collisions
                     r1.Left <= obstacle.Right - (obstacle.Width / 5));
         }
 
-        public static bool IsTouchingLeft(this Rectangle r1, Rectangle obstacle)
+        public static bool IsTouchingLeftOf(this Rectangle r1, Rectangle obstacle)
         {
             return r1.Right <= obstacle.Right &&
                 r1.Right >= obstacle.Left - 5 &&
@@ -31,7 +31,7 @@ namespace QuestMania.Collisions
                 r1.Bottom >= obstacle.Top + (obstacle.Width / 4);
         }
 
-        public static bool IsTouchingRight(this Rectangle r1, Rectangle obstacle)
+        public static bool IsTouchingRightOf(this Rectangle r1, Rectangle obstacle)
         {
             return r1.Left >= obstacle.Left &&
                 r1.Left <= obstacle.Right + 5 &&

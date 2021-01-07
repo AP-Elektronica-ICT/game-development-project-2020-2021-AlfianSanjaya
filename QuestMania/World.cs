@@ -9,7 +9,7 @@ namespace QuestMania
 {
     public class World : IDisposable
     {
-        private Hero hero;
+        public Hero hero;
 
         //public int LevelID { get; set; }
         public Level level;

@@ -11,14 +11,13 @@ namespace QuestMania.States
     public abstract class Screen
     {
         protected Texture2D buttonTexture;
-        protected SpriteFont buttonFont;
-        protected SpriteFont titleFont;
+        protected SpriteFont buttonFont, titleFont;
 
         protected List<Component> components;
 
         public int SelectLevel { get; set; }
 
-        public abstract State State { get;}
+        public State State { get; protected set; }
 
         public Screen()
         {
