@@ -12,10 +12,15 @@ namespace QuestMania.States
         private Button levelOneButton, levelTwoButton, backButton;
         private Label titleLabel;
 
+        private Texture2D backgroundTexture;
+        
+
         public override State State => State.Select;
 
         public SelectLevelScreen() : base()
         {
+            backgroundTexture = Global.Content.Load<Texture2D>("Background/background-1");
+
             int centerX = Global.ScreenWidth / 2 - buttonTexture.Width / 2;
             int centerY = Global.ScreenHeight / 2 - buttonTexture.Height / 2;
             levelOneButton = new Button("Level 1", new Vector2(centerX, centerY), buttonTexture, buttonFont);
@@ -48,6 +53,18 @@ namespace QuestMania.States
         {
             Platformer.graphics.GraphicsDevice.Clear(Color.BurlyWood);
             Global.SpriteBatch.Begin();
+
+            Global.SpriteBatch.Draw(
+                backgroundTexture,
+                Vector2.Zero,
+                null,
+                Color.White,
+                0.0f,
+                Vector2.Zero,
+                1.0f,
+                SpriteEffects.None,
+                0.0f
+            );
 
             foreach (var component in components)
             {
