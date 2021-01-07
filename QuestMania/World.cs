@@ -13,7 +13,6 @@ namespace QuestMania
 
         public Hero Hero { get; set; }
 
-        //public int LevelID { get; set; }
         public Level Level { get; set; }
 
         //private Camera camera;
@@ -22,8 +21,7 @@ namespace QuestMania
         {
             Hero = player;
             Hero.LoadContent();
-            // Create level based on ID
-            //LevelID = id;
+
             Level = newLevel;
             Level.LoadWorld(FileManager.GetPath(@$"Content\Levels\map-{ Level.ID }.json"),
                             Global.Content.Load<Texture2D>("Background/background-test"));
@@ -44,9 +42,9 @@ namespace QuestMania
             Hero.CheckOutOfBounds(Level.LevelHeight);
             if (Hero.IsDead)
             {
-                Hero.SetToSpawn();
                 EndWorld = true;
                 Hero.IsDead = false;
+                Hero.SetToSpawn();
             }
             
         }

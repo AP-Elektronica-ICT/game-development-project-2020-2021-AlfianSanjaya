@@ -9,6 +9,6 @@ namespace QuestMania.States
         Menu,
         Select,
         Game,
-        End
+        GameOver
     }
 }

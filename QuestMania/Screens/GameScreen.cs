@@ -10,36 +10,18 @@ namespace QuestMania.Screens
 {
     public class GameScreen : Screen
     {
-        private Button backButton;
         private World currentWorld;
 
         private World[] worlds =
         {
-            new World(Factory.CreateHero(2, 5), new Level(1)),
+            new World(Factory.CreateHero(1, 6), new Level(1)),
             new World(Factory.CreateHero(0, 1), new Level(2))
         };
 
-        public GameScreen() : base()
-        {
-            State = State.Game;
-            backButton = new Button("Back", new Vector2(20, 10), buttonTexture, buttonFont);
-            components.Add(backButton);
-
-            backButton.Click += BackButton_Click;
-        }
-
-        private void BackButton_Click(object sender, System.EventArgs e)
-        {
-            //Platformer.ScreenManager.SwitchToNextScreen(State.Select);
-        }
+        public override State State => State.Game;
 
         public override void Update(GameTime gameTime)
         {
-            foreach (var component in components)
-            {
-                component.Update();
-            }
-
             if (currentWorld == null)
             {
                 if (SelectLevel != -1)
@@ -52,7 +34,6 @@ namespace QuestMania.Screens
                 if (SelectLevel != currentWorld.Level.ID)
                 {
                     currentWorld = worlds[SelectLevel - 1];
-                    currentWorld.Hero.SetToSpawn();
                 }
             }
 
@@ -60,7 +41,7 @@ namespace QuestMania.Screens
             if (currentWorld.EndWorld)
             {
                 // Switch to end screen
-                Platformer.ScreenManager.SwitchToNextScreen(State.End);
+                Platformer.ScreenManager.SwitchToNextScreen(State.GameOver);
                 currentWorld.EndWorld = false;
             }
 
@@ -78,17 +59,7 @@ namespace QuestMania.Screens
                 currentWorld.Draw();
 
                 Global.SpriteBatch.End();
-
-                Global.SpriteBatch.Begin();
-
-                foreach (var component in components)
-                {
-                    component.Draw();
-                }
-
-                Global.SpriteBatch.End();
             }
-
         }
 
 

@@ -18,7 +18,7 @@ namespace QuestMania.Screens
 
         public int SelectLevel { get; set; }
 
-        public State State { get; set; }
+        public abstract State State { get; }
 
         public Screen()
         {

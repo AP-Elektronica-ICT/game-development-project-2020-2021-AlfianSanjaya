@@ -13,9 +13,10 @@ namespace QuestMania.Screens
 
         private Texture2D backgroundTexture;
 
+        public override State State => State.Select;
+
         public SelectLevelScreen() : base()
         {
-            State = State.Select;
             backgroundTexture = Global.Content.Load<Texture2D>("Background/background-1");
 
             int centerX = Global.ScreenWidth / 2 - buttonTexture.Width / 2;

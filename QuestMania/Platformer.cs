@@ -37,11 +37,11 @@ namespace QuestMania
                 new MenuScreen(this), 
                 new SelectLevelScreen(),
                 new GameScreen(),
-                new EndScreen()
+                new GameOverScreen()
             }; 
 
             ScreenManager = new ScreenManager(screens);
-            ScreenManager.SwitchToNextScreen(State.Select);
+            ScreenManager.SwitchToNextScreen(State.Menu);
 
             base.Initialize();
         }

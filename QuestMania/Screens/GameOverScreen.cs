@@ -7,15 +7,15 @@ using System.Text;
 
 namespace QuestMania.Screens
 {
-    class EndScreen : Screen
+    class GameOverScreen : Screen
     {
         private Button restartButton, menuButton;
         private Label titleLabel;
 
-        public EndScreen()
-        {
-            State = State.End;
+        public override State State => State.GameOver;
 
+        public GameOverScreen()
+        { 
             string title = "Game Over!";
             titleLabel = new Label(title, new Vector2((Global.ScreenWidth / 2) - (titleFont.MeasureString(title).X / 2), 150), titleFont);
 
