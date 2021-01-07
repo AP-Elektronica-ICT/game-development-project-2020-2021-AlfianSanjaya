@@ -8,6 +8,7 @@ namespace QuestMania.States
     {
         Menu,
         Select,
-        Game
+        Game,
+        End
     }
 }

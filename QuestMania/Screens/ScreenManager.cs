@@ -3,8 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using QuestMania.States;
 
-namespace QuestMania.States
+namespace QuestMania.Screens
 {
     public class ScreenManager
     {

@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using QuestMania.Animation2D;
 using QuestMania.Commands;
 using QuestMania.LevelDesign;
+using QuestMania.Screens;
 using QuestMania.States;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,8 @@ namespace QuestMania
             { 
                 new MenuScreen(this), 
                 new SelectLevelScreen(),
-                new GameScreen() 
+                new GameScreen(),
+                new EndScreen()
             }; 
 
             ScreenManager = new ScreenManager(screens);

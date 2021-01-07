@@ -2,8 +2,9 @@
 using Microsoft.Xna.Framework.Graphics;
 using QuestMania.UI;
 using System;
+using QuestMania.States;
 
-namespace QuestMania.States
+namespace QuestMania.Screens
 {
     class SelectLevelScreen : Screen
     {

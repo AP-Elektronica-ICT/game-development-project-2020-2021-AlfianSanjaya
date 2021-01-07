@@ -1,9 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using QuestMania.UI;
+using QuestMania.States;
 using System;
 
-namespace QuestMania.States
+namespace QuestMania.Screens
 {
     public class MenuScreen : Screen
     {

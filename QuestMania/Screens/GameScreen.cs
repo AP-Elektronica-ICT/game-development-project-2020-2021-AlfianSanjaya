@@ -3,9 +3,10 @@ using Microsoft.Xna.Framework.Graphics;
 using QuestMania.Input;
 using QuestMania.LevelDesign;
 using QuestMania.UI;
+using QuestMania.States;
 using System.Collections.Generic;
 
-namespace QuestMania.States
+namespace QuestMania.Screens
 {
     public class GameScreen : Screen
     {
@@ -29,7 +30,7 @@ namespace QuestMania.States
 
         private void BackButton_Click(object sender, System.EventArgs e)
         {
-            Platformer.ScreenManager.SwitchToNextScreen(State.Select);
+            //Platformer.ScreenManager.SwitchToNextScreen(State.Select);
         }
 
         public override void Update(GameTime gameTime)
@@ -59,7 +60,7 @@ namespace QuestMania.States
             if (currentWorld.EndWorld)
             {
                 // Switch to end screen
-                Platformer.ScreenManager.SwitchToNextScreen(State.Menu);
+                Platformer.ScreenManager.SwitchToNextScreen(State.End);
                 currentWorld.EndWorld = false;
             }
 

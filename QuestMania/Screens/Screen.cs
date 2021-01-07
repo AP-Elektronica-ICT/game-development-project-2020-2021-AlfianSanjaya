@@ -1,12 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using QuestMania.States;
 using QuestMania.UI;
 using System;
 using System.Collections.Generic;
 
 using System.Text;
 
-namespace QuestMania.States
+namespace QuestMania.Screens
 {
     public abstract class Screen
     {
