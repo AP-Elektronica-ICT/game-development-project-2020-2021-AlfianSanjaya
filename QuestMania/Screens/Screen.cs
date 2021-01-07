@@ -1,7 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using QuestMania.UI;
 using System;
 using System.Collections.Generic;
+
 using System.Text;
 
 namespace QuestMania.States
@@ -12,10 +14,15 @@ namespace QuestMania.States
         protected SpriteFont buttonFont;
         protected SpriteFont titleFont;
 
+        protected List<Component> components;
+
+        public int LevelID { get; set; }
+
         public abstract State State { get;}
 
         public Screen()
         {
+            components = new List<Component>();
             LoadContent();
         }
 

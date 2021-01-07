@@ -39,7 +39,7 @@ namespace QuestMania
             }; 
 
             ScreenManager = new ScreenManager(screens);
-            ScreenManager.SwitchToNextScreen(State.Menu);
+            ScreenManager.SwitchToNextScreen(State.Select);
 
             base.Initialize();
         }

@@ -13,7 +13,6 @@ namespace QuestMania.States
 
         private Texture2D backgroundTexture;
         private Game game;
-        private List<Component> components;
 
         public override State State => State.Menu;
 
@@ -35,14 +34,9 @@ namespace QuestMania.States
             string title = "Quest Mania";
             titleLabel = new Label(title, new Vector2((Global.ScreenWidth / 2) - (titleFont.MeasureString(title).X / 2), 150), titleFont);
 
-
-            components = new List<Component>()
-            {
-               playButton,
-               quitButton,
-               titleLabel
-            };
-
+            components.Add(playButton);
+            components.Add(quitButton);
+            components.Add(titleLabel);
 
             playButton.Click += PlayButton_Click;
             quitButton.Click += QuitButton_Click;

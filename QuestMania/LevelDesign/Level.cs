@@ -55,7 +55,7 @@ namespace QuestMania.LevelDesign
 
         public void DrawWorld()
         {
-            Global.SpriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, Global.World.LevelOne.LevelWidth, Global.World.LevelOne.LevelHeight), Color.White);
+            Global.SpriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, LevelWidth, LevelHeight), Color.White);
             foreach (var tile in Tiles)
             {
                 tile.Draw();

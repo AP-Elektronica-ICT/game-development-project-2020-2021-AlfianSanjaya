@@ -65,7 +65,7 @@ namespace QuestMania
         { 
             inputReader = newInputReader;
             Orientation = new Vector2(1, 0);
-            Position = new Vector2(64 * 2, 64 * 3);
+            Position = new Vector2(64 * 0, 64 * 0);
             Velocity = new Vector2(0, 0);
 
             int yOffset = 0;

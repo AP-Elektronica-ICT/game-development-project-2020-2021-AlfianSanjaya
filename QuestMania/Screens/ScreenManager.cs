@@ -16,13 +16,15 @@ namespace QuestMania.States
             screens = newScreens;
         }
 
-        public void SwitchToNextScreen(State nextState)
+        public void SwitchToNextScreen(State nextState, int levelID = -1)
         {
             foreach (var screen in screens)
             {
                 if (screen.State == nextState)
                 {
                     activeScreen = screen;
+                    if (activeScreen is GameScreen && levelID != -1)
+                        activeScreen.LevelID = levelID;
                 }
             }
             Debug.WriteLine("Switch screen to " + activeScreen.State);
@@ -30,12 +32,12 @@ namespace QuestMania.States
 
         public void Update(GameTime gameTime)
         {
-            activeScreen?.Update(gameTime);
+            activeScreen.Update(gameTime);
         }
 
         public void Draw()
         {
-            activeScreen?.Draw();
+            activeScreen.Draw();
         }
     }
 }
