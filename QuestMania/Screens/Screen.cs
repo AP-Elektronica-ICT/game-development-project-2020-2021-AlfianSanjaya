@@ -17,7 +17,7 @@ namespace QuestMania.States
 
         public int SelectLevel { get; set; }
 
-        public State State { get; protected set; }
+        public State State { get; set; }
 
         public Screen()
         {

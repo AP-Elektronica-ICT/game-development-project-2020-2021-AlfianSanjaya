@@ -45,6 +45,7 @@ namespace QuestMania
         public float MaxJumpingHeight { get; } = 10f;
         public float JumpForce { get; } = -10f;
         public bool HasJumped { get; set; } = true;
+        public bool IsDead { get; set; } = false;
         #endregion
 
         public Hero(IInputReader newInputReader, Vector2 spawnPosition) 
@@ -131,6 +132,10 @@ namespace QuestMania
                     SetState(EntityState.Fall);
             }
 
+            
+
+                         
+
             Logger();
 
             // Load current animation based on the current state
@@ -140,6 +145,14 @@ namespace QuestMania
             animationPlayer.UpdateAnimation(gameTime);
         }
         #endregion Update
+
+        public void CheckOutOfBounds(int mapHeight)
+        {
+            if (Position.Y > mapHeight)
+            {
+                IsDead = true;
+            }
+        }
 
         public void CheckCollision(Rectangle obstacle, int mapWidth)
         {

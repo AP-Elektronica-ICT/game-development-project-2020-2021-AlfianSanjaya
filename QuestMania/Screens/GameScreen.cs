@@ -48,12 +48,21 @@ namespace QuestMania.States
             }
             else // User select a different level
             {
-                if (SelectLevel != currentWorld.level.ID)
+                if (SelectLevel != currentWorld.Level.ID)
                 {
                     currentWorld = worlds[SelectLevel - 1];
-                    currentWorld.hero.SetToSpawn();
+                    currentWorld.Hero.SetToSpawn();
                 }
             }
+
+            // Check if current world has to end
+            if (currentWorld.EndWorld)
+            {
+                // Switch to end screen
+                Platformer.ScreenManager.SwitchToNextScreen(State.Menu);
+                currentWorld.EndWorld = false;
+            }
+
             currentWorld.Update(gameTime);
         }
 
