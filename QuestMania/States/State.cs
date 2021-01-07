@@ -9,6 +9,7 @@ namespace QuestMania.States
         Menu,
         Select,
         Game,
-        GameOver
+        GameOver,
+        Victory
     }
 }

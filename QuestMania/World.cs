@@ -9,7 +9,8 @@ namespace QuestMania
 {
     public class World
     {
-        public bool EndWorld { get; set; } = false;
+        public bool GameOver { get; set; } = false;
+        public bool Victory { get; set; } = false;
 
         public Hero Hero { get; set; }
 
@@ -32,10 +33,18 @@ namespace QuestMania
             Hero.Update(gameTime);
 
             // Check for collision
-            foreach (var tile in Level.Blocks)
+            foreach (var block in Level.Blocks)
             {
-                if (tile is CollisionTile)
-                    Hero.CheckCollision(tile.CollisionRectangle, Level.LevelWidth);
+                if (block is CollisionTile)
+                    Hero.CheckCollision(block.CollisionRectangle, Level.LevelWidth);
+                else if (block is Flag)
+                {
+                    if (Hero.CollisionRectangle.Intersects(block.CollisionRectangle))
+                    {
+                        Victory = true;
+                        Hero.SetToSpawn();
+                    }
+                }
                 Global.Camera.Update(Hero.Position, Level.LevelWidth, Level.LevelHeight);
             }
 
@@ -43,7 +52,7 @@ namespace QuestMania
             Hero.CheckOutOfBounds(Level.LevelHeight);
             if (Hero.IsDead)
             {
-                EndWorld = true;
+                GameOver = true;
                 Hero.IsDead = false;
                 Hero.SetToSpawn();
             }

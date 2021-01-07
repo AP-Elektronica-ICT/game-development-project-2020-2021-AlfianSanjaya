@@ -38,11 +38,16 @@ namespace QuestMania.Screens
             }
 
             // Check if current world has to end
-            if (currentWorld.EndWorld)
+            if (currentWorld.GameOver)
             {
                 // Switch to end screen
                 Platformer.ScreenManager.SwitchToNextScreen(State.GameOver);
-                currentWorld.EndWorld = false;
+                currentWorld.GameOver = false;
+            }
+            else if (currentWorld.Victory)
+            {
+                Platformer.ScreenManager.SwitchToNextScreen(State.Victory);
+                currentWorld.Victory = false;
             }
 
             currentWorld.Update(gameTime);

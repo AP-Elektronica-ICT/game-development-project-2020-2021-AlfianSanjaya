@@ -37,7 +37,8 @@ namespace QuestMania
                 new MenuScreen(this), 
                 new SelectLevelScreen(),
                 new GameScreen(),
-                new GameOverScreen()
+                new GameOverScreen(),
+                new VictoryScreen()
             }; 
 
             ScreenManager = new ScreenManager(screens);

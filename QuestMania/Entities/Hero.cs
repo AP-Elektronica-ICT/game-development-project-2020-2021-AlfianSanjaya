@@ -30,7 +30,7 @@ namespace QuestMania
         private IGameCommand moveCommand, jumpCommand;
         #endregion
 
-        private Rectangle collisionRectangle;
+        public Rectangle CollisionRectangle;
         int offset = 0;
         #endregion
 
@@ -57,7 +57,7 @@ namespace QuestMania
             Velocity = new Vector2(0, 0);
 
             int yOffset = 0;
-            collisionRectangle = new Rectangle((int)Position.X, (int)Position.Y, Animation.FrameWidth, Animation.FrameHeight - yOffset);
+            CollisionRectangle = new Rectangle((int)Position.X, (int)Position.Y, Animation.FrameWidth, Animation.FrameHeight - yOffset);
         }
 
         public void SetToSpawn()
@@ -116,8 +116,8 @@ namespace QuestMania
             Execute();
 
             // Update hitbox position
-            collisionRectangle.X = (int)Position.X;
-            collisionRectangle.Y = (int)Position.Y;
+            CollisionRectangle.X = (int)Position.X;
+            CollisionRectangle.Y = (int)Position.Y;
 
             // Apply gravity
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -156,26 +156,26 @@ namespace QuestMania
 
         public void CheckCollision(Rectangle obstacle, int mapWidth)
         {
-            if (collisionRectangle.IsTouchingTopOf(obstacle))
+            if (CollisionRectangle.IsTouchingTopOf(obstacle))
             {
                 Debug.WriteLine("HIT BOTTOM");
-                Position.Y = obstacle.Y - collisionRectangle.Height;
+                Position.Y = obstacle.Y - CollisionRectangle.Height;
                 Velocity.Y = 0f;
                 HasJumped = false;                
             }
-            else if (collisionRectangle.IsTouchingBottomOf(obstacle))
+            else if (CollisionRectangle.IsTouchingBottomOf(obstacle))
             {
                 Debug.WriteLine("HIT TOP");
                 Velocity.Y = 1f;
             }
 
-            if (collisionRectangle.IsTouchingLeftOf(obstacle))
+            if (CollisionRectangle.IsTouchingLeftOf(obstacle))
             {
                 Debug.WriteLine("Collision from RIGHT -->");
-                Position.X = obstacle.X - collisionRectangle.Width - 1;
+                Position.X = obstacle.X - CollisionRectangle.Width - 1;
                 
             }
-            else if (collisionRectangle.IsTouchingRightOf(obstacle))
+            else if (CollisionRectangle.IsTouchingRightOf(obstacle))
             {
                 Debug.WriteLine("Collision from LEFT <--");
                 Position.X = obstacle.X + obstacle.Width + 1;
@@ -184,8 +184,8 @@ namespace QuestMania
             // Screen left - right boundaries
             if (Position.X < 0)
                 Position.X = 0;
-            if (Position.X > mapWidth - collisionRectangle.Width)
-                Position.X = mapWidth - collisionRectangle.Width;
+            if (Position.X > mapWidth - CollisionRectangle.Width)
+                Position.X = mapWidth - CollisionRectangle.Width;
         }
 
         /// <summary>
