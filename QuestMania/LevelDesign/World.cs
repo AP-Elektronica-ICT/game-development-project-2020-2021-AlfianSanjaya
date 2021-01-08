@@ -1,11 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using QuestMania.FileSystem;
 using QuestMania.LevelDesign;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace QuestMania
+namespace QuestMania.LevelDesign
 {
     public class World
     {
@@ -29,13 +28,9 @@ namespace QuestMania
         }
 
         public void Update(GameTime gameTime)
-        {
-            
+        {          
             Global.Camera.Update(Hero.Position, Level.LevelWidth, Level.LevelHeight);
             
-
-
-
             if (Hero.IsDead == false)
             {
                 // Check for collision

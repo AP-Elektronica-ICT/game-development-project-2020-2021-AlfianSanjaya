@@ -3,13 +3,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using QuestMania.Animation2D;
 using QuestMania.Animation2D.HeroAnimations;
+using QuestMania.Camera2D;
 using QuestMania.Commands;
-using QuestMania.LevelDesign;
 using QuestMania.Screens;
 using QuestMania.States;
-using System;
 using System.Collections.Generic;
-using System.IO;
 
 namespace QuestMania
 {
@@ -86,15 +84,8 @@ namespace QuestMania
             Global.Camera = new Camera(GraphicsDevice.Viewport);
         }
 
-
-
         protected override void LoadContent()
         {
-            //Hero.GetInstance.LoadContent();
-            //Global.World.LevelOne.LoadWorld(FileManager.GetPath(@"Content\Levels\map-2.json"),
-            //                                Content.Load<Texture2D>("Background/background-test"));
-            
-            //Enemy.GetInstance.LoadCurrentAnimation();
         }
 
         protected override void Update(GameTime gameTime)
@@ -111,7 +102,6 @@ namespace QuestMania
 
         protected override void Draw(GameTime gameTime)
         {
-
             ScreenManager.Draw();
 
             base.Draw(gameTime);

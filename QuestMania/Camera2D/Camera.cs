@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace QuestMania
+namespace QuestMania.Camera2D
 {
     public class Camera
     {

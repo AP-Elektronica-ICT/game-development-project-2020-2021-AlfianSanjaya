@@ -66,7 +66,5 @@ namespace QuestMania.Screens
                 Global.SpriteBatch.End();
             }
         }
-
-
     }
 }

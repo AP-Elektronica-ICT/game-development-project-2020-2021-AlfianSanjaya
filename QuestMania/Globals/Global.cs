@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using QuestMania.Animation2D;
+using QuestMania.Camera2D;
 using QuestMania.Commands;
 using QuestMania.LevelDesign;
 using System.Collections.Generic;
@@ -18,7 +19,6 @@ namespace QuestMania
 
         public static class World
         {
-            public static Level LevelOne;
             public static int TileWidth = 64;
             public static int TileHeight = 64;
         } 
@@ -27,11 +27,6 @@ namespace QuestMania
         {
             public static List<Animation> Animations;
             public static List<IGameCommand> GameCommands;
-        }
-
-        public static class Enemy
-        {
-            public static Animation IdleAnimation;
         }
     }
 }
