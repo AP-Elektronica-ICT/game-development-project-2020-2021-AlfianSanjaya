@@ -70,7 +70,8 @@ namespace QuestMania.Screens
 
         public override void Draw()
         {
-            Platformer.graphics.GraphicsDevice.Clear(Color.BurlyWood);
+            Platformer.ScreenManager.ClearScreen();
+
             Global.SpriteBatch.Begin();
 
             Global.SpriteBatch.Draw(

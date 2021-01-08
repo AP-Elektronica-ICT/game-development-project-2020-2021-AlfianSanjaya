@@ -32,7 +32,6 @@ namespace QuestMania
         #endregion
 
         public Rectangle CollisionRectangle;
-        int offset = 0;
         #endregion
 
         #region Properties

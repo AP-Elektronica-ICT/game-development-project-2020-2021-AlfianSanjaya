@@ -31,6 +31,11 @@ namespace QuestMania.Screens
             Debug.WriteLine("Switch screen to " + activeScreen.State);
         }
 
+        public void ClearScreen()
+        {
+            Global.Graphics.GraphicsDevice.Clear(Color.BurlyWood);
+        }
+
         public void LoadContent()
         {
             activeScreen.LoadContent();

@@ -68,6 +68,7 @@ namespace QuestMania.Screens
 
         public override void Draw()
         {
+            Platformer.ScreenManager.ClearScreen();
             Global.SpriteBatch.Begin();
 
             Global.SpriteBatch.Draw(

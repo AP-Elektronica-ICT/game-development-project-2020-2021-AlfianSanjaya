@@ -61,7 +61,7 @@ namespace QuestMania.Screens
         {
             if (currentWorld != null)
             {
-                Platformer.graphics.GraphicsDevice.Clear(Color.BurlyWood);
+                Platformer.ScreenManager.ClearScreen();
 
                 Global.SpriteBatch.Begin(transformMatrix: Global.Camera.Transform);
 

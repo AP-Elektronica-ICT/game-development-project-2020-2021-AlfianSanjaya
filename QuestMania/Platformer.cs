@@ -15,15 +15,12 @@ namespace QuestMania
 {
     public class Platformer : Game
     {
-        public static GraphicsDeviceManager graphics;
-
+        public static ScreenManager ScreenManager;
         private List<Screen> screens;
 
-        public static ScreenManager ScreenManager;
-        
         public Platformer()
         {
-            graphics = new GraphicsDeviceManager(this);
+            Global.Graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
@@ -37,7 +34,7 @@ namespace QuestMania
             screens = new List<Screen>() 
             { 
                 new MenuScreen(this, new Button("Play"), new Button("Quit"), new Label("Quest Mania")),
-                new SelectLevelScreen(new Button("Level 1"), new Button("Level 2"), new Button("Level 3"), new Label("Select a level")),
+                new SelectLevelScreen(new Button("Level 1"), new Button("Level 2"), new Button("Back"), new Label("Select a level")),
                 new GameScreen(new World[]
                 {
                     new World(Factory.CreateHero(1, 6), new Level(1)),
@@ -60,9 +57,9 @@ namespace QuestMania
             Window.Title = "Quest Mania";
 
             // Custom screen resolution
-            graphics.PreferredBackBufferWidth = Global.ScreenWidth;
-            graphics.PreferredBackBufferHeight = Global.ScreenHeight;
-            graphics.ApplyChanges();
+            Global.Graphics.PreferredBackBufferWidth = Global.ScreenWidth;
+            Global.Graphics.PreferredBackBufferHeight = Global.ScreenHeight;
+            Global.Graphics.ApplyChanges();
         }
 
         private void InitializeGlobals()
@@ -106,7 +103,6 @@ namespace QuestMania
         protected override void Draw(GameTime gameTime)
         {
             ScreenManager.Draw();
-
             base.Draw(gameTime);
         }
     }

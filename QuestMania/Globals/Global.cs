@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Content;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using QuestMania.Animation2D;
 using QuestMania.Camera2D;
@@ -13,6 +14,7 @@ namespace QuestMania
         public static ContentManager Content;
         public static SpriteBatch SpriteBatch;
         public static Camera Camera;
+        public static GraphicsDeviceManager Graphics;
 
         public static int ScreenWidth = 1280;
         public static int ScreenHeight = 720;
