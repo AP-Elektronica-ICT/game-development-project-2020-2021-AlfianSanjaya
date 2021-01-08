@@ -17,7 +17,7 @@ namespace QuestMania.Animation2D
         /// Load the current animation.
         /// </summary>
         /// <param name="animationToLoad">The animation you want to load</param>
-        public void LoadAnimation(Animation animationToLoad)
+        public void LoadCurrentAnimation(Animation animationToLoad)
         {
             CurrentAnimation = animationToLoad;
         }

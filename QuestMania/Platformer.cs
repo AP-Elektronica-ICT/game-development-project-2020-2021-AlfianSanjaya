@@ -66,8 +66,8 @@ namespace QuestMania
             {
                 new IdleAnimation(Global.Content.Load<Texture2D>("Player/idle-sheet"), 4, 4),
                 new RunAnimation(Global.Content.Load<Texture2D>("Player/run-sheet"), 6, 8),
-                new JumpAnimation(Global.Content.Load<Texture2D>("Player/jump"), 1, 1),
-                new FallAnimation(Global.Content.Load<Texture2D>("Player/jump"), 1, 1)
+                new JumpAnimation(Global.Content.Load<Texture2D>("Player/jump-sheet"), 1, 1),
+                new FallAnimation(Global.Content.Load<Texture2D>("Player/fall-sheet"), 1, 1)
             };
 
             List<IGameCommand> commands = new List<IGameCommand>()

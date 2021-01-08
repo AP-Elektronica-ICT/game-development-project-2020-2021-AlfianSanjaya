@@ -82,7 +82,6 @@ C:\Users\32495\Desktop\GameDev\QuestMania\QuestMania\obj\Debug\netcoreapp3.1\Que
 C:\Users\32495\Desktop\GameDev\QuestMania\QuestMania\obj\Debug\netcoreapp3.1\QuestMania.dll
 C:\Users\32495\Desktop\GameDev\QuestMania\QuestMania\obj\Debug\netcoreapp3.1\QuestMania.pdb
 C:\Users\32495\Desktop\GameDev\QuestMania\QuestMania\obj\Debug\netcoreapp3.1\QuestMania.genruntimeconfig.cache
-C:\Users\32495\Desktop\GameDev\QuestMania\QuestMania\bin\Debug\netcoreapp3.1\Content\Player\Jump.xnb
 C:\Users\32495\Desktop\GameDev\QuestMania\QuestMania\bin\Debug\netcoreapp3.1\Content\block.xnb
 C:\Users\32495\Desktop\GameDev\QuestMania\QuestMania\bin\Debug\netcoreapp3.1\Content\idle-sheet-1.xnb
 C:\Users\32495\Desktop\GameDev\QuestMania\QuestMania\bin\Debug\netcoreapp3.1\Content\Tile.xnb
@@ -110,3 +109,5 @@ C:\Users\32495\Desktop\GameDev\QuestMania\QuestMania\bin\Debug\netcoreapp3.1\Con
 C:\Users\32495\Desktop\GameDev\QuestMania\QuestMania\bin\Debug\netcoreapp3.1\Content\Blocks\Dirt2.xnb
 C:\Users\32495\Desktop\GameDev\QuestMania\QuestMania\bin\Debug\netcoreapp3.1\Content\Blocks\flag.xnb
 C:\Users\32495\Desktop\GameDev\QuestMania\QuestMania\bin\Debug\netcoreapp3.1\Content\Blocks\spike.xnb
+C:\Users\32495\Desktop\GameDev\QuestMania\QuestMania\bin\Debug\netcoreapp3.1\Content\Player\fall-sheet.xnb
+C:\Users\32495\Desktop\GameDev\QuestMania\QuestMania\bin\Debug\netcoreapp3.1\Content\Player\jump-sheet.xnb

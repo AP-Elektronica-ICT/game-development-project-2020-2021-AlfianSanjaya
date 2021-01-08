@@ -182,7 +182,7 @@ namespace QuestMania
                 if (currentState == heroAnimation.State)
                     currentAnimation = heroAnimation;
             }
-            animationPlayer.LoadAnimation(currentAnimation);
+            animationPlayer.LoadCurrentAnimation(currentAnimation);
         }
 
         /// <summary>
@@ -235,10 +235,7 @@ namespace QuestMania
 
         #region Draw
         public void Draw()
-        {
-            //Load current animation based on the current state
-            //LoadCurrentAnimation();
-            
+        {            
             if (animationPlayer.CurrentAnimation != null)
             {
                 SpriteEffects flip = SpriteEffects.None;

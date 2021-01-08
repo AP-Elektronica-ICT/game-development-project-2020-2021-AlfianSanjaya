@@ -42,7 +42,7 @@ namespace QuestMania.Entities
 
         public void LoadCurrentAnimation()
         {
-            animationPlayer.LoadAnimation(idleAnimation);
+            animationPlayer.LoadCurrentAnimation(idleAnimation);
         }
 
         public void Update(GameTime gameTime)
