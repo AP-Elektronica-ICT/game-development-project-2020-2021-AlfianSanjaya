@@ -8,28 +8,31 @@ namespace QuestMania.Screens
 {
     class SelectLevelScreen : Screen
     {
-        private Button levelOneButton, levelTwoButton, backButton;
+        private Button levelOneButton, levelTwoButton, levelThreeButton, backButton;
         private Label titleLabel;
 
         private Texture2D backgroundTexture;
 
         public override State State => State.Select;
 
-        public SelectLevelScreen(Button level1, Button level2, Button back, Label title)
+        public SelectLevelScreen(Button level1, Button level2, Button level3, Button back, Label title)
         {
             levelOneButton = level1;
             levelTwoButton = level2;
+            levelThreeButton = level3;
             backButton = back;
             titleLabel = title;
 
             components.Add(levelOneButton);
             components.Add(levelTwoButton);
+            components.Add(levelThreeButton);
             components.Add(backButton);
             components.Add(titleLabel);
 
 
             levelOneButton.Click += LevelOneButton_Click;
             levelTwoButton.Click += LevelTwoButton_Click;
+            levelThreeButton.Click += LevelThreeButton_Click;
             backButton.Click += BackButton_Click;
         }
 
@@ -56,6 +59,7 @@ namespace QuestMania.Screens
 
             levelOneButton.SetPosition(centerX, centerY);
             levelTwoButton.SetPosition(centerX, centerY + (buttonTexture.Height * 3 / 2));
+            levelThreeButton.SetPosition(centerX, centerY + (buttonTexture.Height * 6 / 2));
             backButton.SetPosition(20, 10);
             titleLabel.SetPosition((int)((Global.ScreenWidth / 2) - (titleFont.MeasureString(titleLabel.Text).X / 2)), 150);
         }
@@ -102,6 +106,11 @@ namespace QuestMania.Screens
         private void LevelTwoButton_Click(object sender, EventArgs e)
         {
             Platformer.ScreenManager.SwitchToNextScreen(State.Game, 2);
+        }
+
+        private void LevelThreeButton_Click(object sender, EventArgs e)
+        {
+            Platformer.ScreenManager.SwitchToNextScreen(State.Game, 3);
         }
 
         private void BackButton_Click(object sender, EventArgs e)

@@ -34,11 +34,12 @@ namespace QuestMania
             screens = new List<Screen>() 
             { 
                 new MenuScreen(this, new Button("Play"), new Button("Quit"), new Label("Quest Mania")),
-                new SelectLevelScreen(new Button("Level 1"), new Button("Level 2"), new Button("Back"), new Label("Select a level")),
+                new SelectLevelScreen(new Button("Level 1"), new Button("Level 2"), new Button("Level 3"), new Button("Back"), new Label("Select a level")),
                 new GameScreen(new World[]
                 {
-                    new World(Factory.CreateHero(1, 6), new Level(1)),
-                    new World(Factory.CreateHero(0, 1), new Level(2))
+                    new World(Factory.CreateHero(0, 5), new Level(1)),
+                    new World(Factory.CreateHero(0, 0), new Level(2)),
+                    new World(Factory.CreateHero(0, 0), new Level(3))
                 }),
                 new GameOverScreen(new Button("Restart level"), new Button("Back to menu"), new Label("Game over!")),
                 new VictoryScreen(new Button("Restart level"), new Button("Back to menu"), new Label("Huzza! Victory!"))

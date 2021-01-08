@@ -22,11 +22,9 @@ namespace QuestMania.LevelDesign.BuildingBlocks
             Position.Y = CollisionRectangle.Y;
             width = CollisionRectangle.Width;
             height = CollisionRectangle.Height;
-
-            LoadTile();
         }
 
-        public void LoadTile()
+        public void LoadContent()
         {
             texture = Global.Content.Load<Texture2D>($"Blocks/{ name }");
         }

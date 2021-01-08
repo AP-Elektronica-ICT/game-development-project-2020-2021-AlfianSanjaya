@@ -27,7 +27,7 @@ namespace QuestMania.LevelDesign
         public void LoadContent()
         {
             Hero.LoadContent();
-            Level.LoadWorld(FileManager.GetPath(@$"Content\Levels\map-{ Level.ID }.json"),
+            Level.LoadWorld(FileManager.GetPath(@$"Content\Levels\level-{ Level.ID }.txt"),
                             Global.Content.Load<Texture2D>($"Background/map-background-1"));
         }
 
