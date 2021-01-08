@@ -15,6 +15,15 @@ namespace QuestMania.Screens
             worlds = newWorlds;
         }
 
+        public override void LoadContent()
+        {
+            base.LoadContent();
+            foreach (World world in worlds)
+            {
+                world.LoadContent();
+            }
+        }
+
         public override void Update(GameTime gameTime)
         {
             if (currentWorld == null)

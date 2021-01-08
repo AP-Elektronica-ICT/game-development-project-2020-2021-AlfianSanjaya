@@ -31,6 +31,11 @@ namespace QuestMania.Screens
             Debug.WriteLine("Switch screen to " + activeScreen.State);
         }
 
+        public void LoadContent()
+        {
+            activeScreen.LoadContent();
+        }
+
         public void Update(GameTime gameTime)
         {
             activeScreen.Update(gameTime);

@@ -14,8 +14,9 @@ namespace QuestMania.Screens
 
         public override State State => State.GameOver;
 
-        public GameOverScreen()
-        { 
+        public override void LoadContent()
+        {
+            base.LoadContent();
             string title = "Game Over!";
             titleLabel = new Label(title, new Vector2((Global.ScreenWidth / 2) - (titleFont.MeasureString(title).X / 2), 150), titleFont);
 

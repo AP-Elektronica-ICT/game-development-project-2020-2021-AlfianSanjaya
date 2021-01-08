@@ -23,15 +23,15 @@ namespace QuestMania.Screens
         public Screen()
         {
             components = new List<Component>();
-            LoadContent();
         }
 
-        public void LoadContent() 
+        public virtual void LoadContent() 
         {
             buttonTexture = Global.Content.Load<Texture2D>("GUI/button");
             buttonFont = Global.Content.Load<SpriteFont>("Fonts/DefaultFont");
             titleFont = Global.Content.Load<SpriteFont>("Fonts/TitleFont");
         }
+
         public abstract void Update(GameTime gameTime);
         public abstract void Draw();
     }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using QuestMania.Commands;
 using QuestMania.Input;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace QuestMania
 
         public static Hero CreateHero(int unitX, int unitY)
         {
-            return new Hero(new KeyboardReader(), new Vector2(Global.World.TileWidth * unitX, Global.World.TileHeight * unitY));
+            return new Hero(new KeyboardReader(), new Vector2(Global.World.TileWidth * unitX, Global.World.TileHeight * unitY), new List<IGameCommand>() { new MoveCommand(), new JumpCommand() });
         }
     }
 }

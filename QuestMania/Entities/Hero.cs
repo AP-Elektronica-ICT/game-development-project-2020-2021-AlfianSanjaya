@@ -49,8 +49,10 @@ namespace QuestMania
         public bool IsDead { get; set; } = false;
         #endregion
 
-        public Hero(IInputReader newInputReader, Vector2 spawnPosition) 
-        { 
+        public Hero(IInputReader newInputReader, Vector2 spawnPosition, List<IGameCommand> commands) 
+        {
+            LoadCommands(commands);
+
             inputReader = newInputReader;
             Orientation = new Vector2(1, 0);
             Position = spawnPosition;
@@ -66,10 +68,10 @@ namespace QuestMania
             Position = SpawnPosition;
         }
 
-        public void LoadContent(List<IGameCommand> commands)
+        public void LoadContent()
         {
             LoadAnimations();
-            LoadCommands(commands);
+            //LoadCommands(commands);
         }
 
         /// <summary>

@@ -16,10 +16,15 @@ namespace QuestMania.Screens
 
         public override State State => State.Menu;
 
-        public MenuScreen(Game newGame) : base()
+        public MenuScreen(Game newGame)
         {
             game = newGame;
-            
+        }
+
+        public override void LoadContent()
+        {            
+            base.LoadContent();
+
             backgroundTexture = Global.Content.Load<Texture2D>("Background/background-1");
 
             int centerX = Global.ScreenWidth / 2 - buttonTexture.Width / 2;

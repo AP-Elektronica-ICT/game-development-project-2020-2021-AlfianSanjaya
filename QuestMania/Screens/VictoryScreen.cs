@@ -14,8 +14,10 @@ namespace QuestMania.Screens
 
         public override State State => State.Victory;
 
-        public VictoryScreen()
+        public override void LoadContent()
         {
+            base.LoadContent();
+
             string title = "Huzza! Victory!";
             titleLabel = new Label(title, new Vector2((Global.ScreenWidth / 2) - (titleFont.MeasureString(title).X / 2), 150), titleFont);
 

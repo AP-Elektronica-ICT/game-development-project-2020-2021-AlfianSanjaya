@@ -17,16 +17,15 @@ namespace QuestMania.LevelDesign
 
         public Level Level { get; set; }
 
-        //private List<IG>
-
-        //private Camera camera;
-
-        public World(Hero player, Level newLevel, List<IGameCommand> commands)
+        public World(Hero player, Level newLevel)
         {
             Hero = player;
-            Hero.LoadContent(commands);
+            Level = newLevel;   
+        }
 
-            Level = newLevel;
+        public void LoadContent()
+        {
+            Hero.LoadContent();
             Level.LoadWorld(FileManager.GetPath(@$"Content\Levels\map-{ Level.ID }.json"),
                             Global.Content.Load<Texture2D>($"Background/map-background-1"));
         }

@@ -16,6 +16,8 @@ namespace QuestMania
     {
         public static GraphicsDeviceManager graphics;
 
+        private List<Screen> screens;
+
         public static ScreenManager ScreenManager;
         
         public Platformer()
@@ -31,14 +33,14 @@ namespace QuestMania
             InitializeGlobals();
             InitializeHeroGlobals();
 
-            List<Screen> screens = new List<Screen>() 
+            screens = new List<Screen>() 
             { 
                 new MenuScreen(this), 
                 new SelectLevelScreen(),
                 new GameScreen(new World[]
                 {
-                    new World(Factory.CreateHero(1, 6), new Level(1), new List<IGameCommand>() { new MoveCommand(), new JumpCommand() }),
-                    new World(Factory.CreateHero(0, 1), new Level(2), new List<IGameCommand>() { new MoveCommand(), new JumpCommand() })
+                    new World(Factory.CreateHero(1, 6), new Level(1)),
+                    new World(Factory.CreateHero(0, 1), new Level(2))
                 }),
                 new GameOverScreen(),
                 new VictoryScreen()
@@ -82,6 +84,10 @@ namespace QuestMania
 
         protected override void LoadContent()
         {
+            foreach (Screen screen in screens)
+            {
+                screen.LoadContent();
+            }
         }
 
         protected override void Update(GameTime gameTime)
