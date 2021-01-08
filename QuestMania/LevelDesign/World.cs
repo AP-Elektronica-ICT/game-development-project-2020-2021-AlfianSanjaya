@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using QuestMania.Commands;
 using QuestMania.FileSystem;
 using QuestMania.LevelDesign;
+using QuestMania.LevelDesign.BuildingBlocks;
 using System;
 using System.Collections.Generic;
 

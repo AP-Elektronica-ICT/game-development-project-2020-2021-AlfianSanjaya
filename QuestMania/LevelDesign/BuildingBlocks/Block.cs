@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace QuestMania.LevelDesign
+namespace QuestMania.LevelDesign.BuildingBlocks
 {
     public class Block
     {
@@ -34,29 +34,6 @@ namespace QuestMania.LevelDesign
         public void Draw()
         {
             Global.SpriteBatch.Draw(texture, CollisionRectangle, Color.White);
-        }
-    }
-
-    public class CollisionTile : Block
-    {
-        public CollisionTile(Rectangle rectangle, string tileName) : base(rectangle, tileName)
-        { 
-           
-        }
-    }
-
-    public class Flag : Block
-    {
-        public Flag(Rectangle rectangle, string tileName) : base(rectangle, tileName)
-        {
-        }
-    }
-
-    public class Spike : Block
-    {
-        public Spike(Rectangle rectangle, string tileName) : base(rectangle, tileName)
-        {
-            CollisionRectangle.Y += Global.World.TileHeight / 2;
         }
     }
 }
