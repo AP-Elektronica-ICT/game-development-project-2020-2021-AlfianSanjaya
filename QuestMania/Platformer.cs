@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using QuestMania.Animation2D;
+using QuestMania.Animation2D.HeroAnimations;
 using QuestMania.Commands;
 using QuestMania.LevelDesign;
 using QuestMania.Screens;
@@ -60,15 +61,14 @@ namespace QuestMania
         }
 
         private void InitializeHeroGlobals()
-        {
-            Global.Hero.Animations.Add("idle", new Animation(Global.Content.Load<Texture2D>("Player/idle-sheet"), 4, 4));
-            Global.Hero.Animations.Add("run", new Animation(Global.Content.Load<Texture2D>("Player/run-sheet"), 6, 8));
-            Global.Hero.Animations.Add("jump", new Animation(Global.Content.Load<Texture2D>("Player/jump"), 1, 1));
-
-            //string heroToLoad = "Dummy4";
-            //Globals.Hero.Animations.Add("idle", new Animation(Globals.Content.Load<Texture2D>(heroToLoad), 1, 1));
-            //Globals.Hero.Animations.Add("run", new Animation(Globals.Content.Load<Texture2D>(heroToLoad), 1, 1));
-            //Globals.Hero.Animations.Add("jump", new Animation(Globals.Content.Load<Texture2D>(heroToLoad), 1, 1));
+        {           
+            Global.Hero.Animations = new List<Animation>()
+            {
+                new IdleAnimation(Global.Content.Load<Texture2D>("Player/idle-sheet"), 4, 4),
+                new RunAnimation(Global.Content.Load<Texture2D>("Player/run-sheet"), 6, 8),
+                new JumpAnimation(Global.Content.Load<Texture2D>("Player/jump"), 1, 1),
+                new FallAnimation(Global.Content.Load<Texture2D>("Player/jump"), 1, 1)
+            };
 
             List<IGameCommand> commands = new List<IGameCommand>()
             {

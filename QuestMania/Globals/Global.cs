@@ -25,7 +25,7 @@ namespace QuestMania
 
         public static class Hero
         {
-            public static Dictionary<string, Animation> Animations = new Dictionary<string, Animation>();
+            public static List<Animation> Animations;
             public static List<IGameCommand> GameCommands;
         }
 

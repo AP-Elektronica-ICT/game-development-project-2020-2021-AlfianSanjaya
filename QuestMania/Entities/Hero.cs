@@ -17,7 +17,8 @@ namespace QuestMania
 
         #region Animation
         private AnimationPlayer animationPlayer = new AnimationPlayer();
-        private Animation currentAnimation, idleAnimation, runAnimation, jump;
+        private Animation currentAnimation; //, idleAnimation, runAnimation, jump;
+        private List<Animation> animations = new List<Animation>();
         #endregion
 
         #region Character States
@@ -76,22 +77,9 @@ namespace QuestMania
         /// </summary>
         public void LoadAnimations()
         {
-            foreach (KeyValuePair<string, Animation> entry in Global.Hero.Animations)
+            foreach (Animation heroAnimation in Global.Hero.Animations)
             {
-                switch (entry.Key)
-                {
-                    case "idle":
-                        idleAnimation = entry.Value;
-                        break;
-                    case "run":
-                        runAnimation = entry.Value;
-                        break;
-                    case "jump":
-                        jump = entry.Value;
-                        break;
-                    default:
-                        break;
-                }
+                animations.Add(heroAnimation);
             }
         }
 
@@ -131,10 +119,6 @@ namespace QuestMania
                 else
                     SetState(EntityState.Fall);
             }
-
-            
-
-                         
 
             Logger();
 
@@ -193,22 +177,10 @@ namespace QuestMania
         /// </summary>
         public void LoadCurrentAnimation()
         {
-            switch (currentState)
+            foreach (Animation heroAnimation in animations)
             {
-                case EntityState.Idle:
-                    currentAnimation = idleAnimation;
-                    break;
-                case EntityState.Run:
-                    currentAnimation = runAnimation;
-                    break;
-                case EntityState.Jump:
-                    currentAnimation = jump;
-                    break;
-                case EntityState.Fall:
-                    currentAnimation = jump;
-                    break;
-                default:
-                    break;
+                if (currentState == heroAnimation.State)
+                    currentAnimation = heroAnimation;
             }
             animationPlayer.LoadAnimation(currentAnimation);
         }

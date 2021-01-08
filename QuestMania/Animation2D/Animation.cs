@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using QuestMania.States;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,8 +8,10 @@ using System.Text;
 namespace QuestMania.Animation2D
 {
     // Class that handles a single animation
-    public class Animation
+    public abstract class Animation
     {
+        public abstract EntityState State { get; protected set; } 
+
         public Texture2D SpriteSheetTexture { get; private set; }
 
         // List of key frames
