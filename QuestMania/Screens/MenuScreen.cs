@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using QuestMania.UI;
 using QuestMania.States;
 using System;
+using System.Collections.Generic;
 
 namespace QuestMania.Screens
 {
@@ -16,27 +17,12 @@ namespace QuestMania.Screens
 
         public override State State => State.Menu;
 
-        public MenuScreen(Game newGame)
+        public MenuScreen(Game newGame, Button newPlayButton, Button newQuitButton, Label newTitleLabel)
         {
             game = newGame;
-        }
-
-        public override void LoadContent()
-        {            
-            base.LoadContent();
-
-            backgroundTexture = Global.Content.Load<Texture2D>("Background/background-1");
-
-            int centerX = Global.ScreenWidth / 2 - buttonTexture.Width / 2;
-            int centerY = Global.ScreenHeight / 2 - buttonTexture.Height / 2;
-            playButton = new Button("Play",
-                                    new Vector2(centerX, centerY),
-                                    buttonTexture,
-                                    buttonFont);
-            quitButton = new Button("Quit", new Vector2(centerX, centerY + (buttonTexture.Height * 3 / 2)), buttonTexture, buttonFont);
-
-            string title = "Quest Mania";
-            titleLabel = new Label(title, new Vector2((Global.ScreenWidth / 2) - (titleFont.MeasureString(title).X / 2), 150), titleFont);
+            playButton = newPlayButton;
+            quitButton = newQuitButton;
+            titleLabel = newTitleLabel;
 
             components.Add(playButton);
             components.Add(quitButton);
@@ -44,6 +30,32 @@ namespace QuestMania.Screens
 
             playButton.Click += PlayButton_Click;
             quitButton.Click += QuitButton_Click;
+        }
+
+        public override void LoadContent()
+        {            
+            base.LoadContent();
+            backgroundTexture = Global.Content.Load<Texture2D>("Background/background-1");
+
+            foreach (Component component in components)
+            {
+                if (component is Button)
+                    component.LoadContent(buttonTexture, buttonFont);
+                if (component is Label)
+                    component.LoadContent(titleFont);
+            }
+
+            PlaceUI();
+        }
+
+        public void PlaceUI()
+        {
+            int centerX = Global.ScreenWidth / 2 - buttonTexture.Width / 2;
+            int centerY = Global.ScreenHeight / 2 - buttonTexture.Height / 2;
+
+            playButton.SetPosition(centerX, centerY);
+            quitButton.SetPosition(centerX, centerY + (buttonTexture.Height * 3 / 2));
+            titleLabel.SetPosition((int)((Global.ScreenWidth / 2) - (titleFont.MeasureString(titleLabel.Text).X / 2)), 150);
         }
 
         public override void Update(GameTime gameTime)

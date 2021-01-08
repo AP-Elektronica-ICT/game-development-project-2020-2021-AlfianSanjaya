@@ -71,7 +71,6 @@ namespace QuestMania
         public void LoadContent()
         {
             LoadAnimations();
-            //LoadCommands(commands);
         }
 
         /// <summary>

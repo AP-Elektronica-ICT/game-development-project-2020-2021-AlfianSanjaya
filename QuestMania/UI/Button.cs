@@ -11,13 +11,16 @@ namespace QuestMania.UI
     {
         #region Fields
         private MouseState currentMouse;
-        private SpriteFont font;
+        
         private bool isHovering;
         private MouseState previousMouse;
-        public Texture2D Texture;
+        
         #endregion
 
         #region Properties
+        public SpriteFont Font { get; private set; }
+        public Texture2D Texture { get; private set; }
+
         public event EventHandler Click;
         public bool Clicked { get; private set; }
         public Color TextColor { get; set; }
@@ -33,13 +36,22 @@ namespace QuestMania.UI
         #endregion
 
         #region Methods
-        public Button(string text, Vector2 newPosition, Texture2D texture, SpriteFont newFont)
+        public Button(string text)
         {
             Text = text;
-            Position = newPosition;
-            Texture = texture;
-            font = newFont;
             TextColor = Color.Black;
+        }
+
+        public void SetPosition(int x, int y)
+        {
+            Position.X = x;
+            Position.Y = y;
+        }
+
+        public override void LoadContent(Texture2D texture, SpriteFont font)
+        {
+            Texture = texture;
+            Font = font;
         }
 
         public override void Update()
@@ -75,10 +87,10 @@ namespace QuestMania.UI
 
             if (!string.IsNullOrEmpty(Text))
             {
-                var x = (Rectangle.X + (Rectangle.Width / 2)) - (font.MeasureString(Text).X / 2);
-                var y = (Rectangle.Y + (Rectangle.Height / 2)) - (font.MeasureString(Text).Y / 2);
+                var x = (Rectangle.X + (Rectangle.Width / 2)) - (Font.MeasureString(Text).X / 2);
+                var y = (Rectangle.Y + (Rectangle.Height / 2)) - (Font.MeasureString(Text).Y / 2);
 
-                Global.SpriteBatch.DrawString(font, Text, new Vector2(x, y), TextColor);
+                Global.SpriteBatch.DrawString(Font, Text, new Vector2(x, y), TextColor);
             }
 
         }

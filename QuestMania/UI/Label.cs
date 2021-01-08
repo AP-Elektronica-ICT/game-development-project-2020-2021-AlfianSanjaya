@@ -8,25 +8,28 @@ namespace QuestMania.UI
 {
     public class Label : Component
     { 
-        private string text;
-        private SpriteFont font;
+        public string Text { get; private set; }
+        public SpriteFont Font { get; private set; }
 
-        public Label(string labelText, Vector2 labelPosition, SpriteFont labelFont)
+        public Label(string labelText)
         {
-            text = labelText;
-            Position = labelPosition;
-            font = labelFont;
+            Text = labelText;
         }
-        public override void Update()
+
+        public void SetPosition(int x, int y)
         {
-            
+            Position.X = x;
+            Position.Y = y;
+        }
+
+        public override void LoadContent(SpriteFont font)
+        {
+            Font = font;
         }
 
         public override void Draw()
         {
-            Global.SpriteBatch.DrawString(font, text, Position, Color.Black);
+            Global.SpriteBatch.DrawString(Font, Text, Position, Color.Black);
         }
-
-
     }
 }

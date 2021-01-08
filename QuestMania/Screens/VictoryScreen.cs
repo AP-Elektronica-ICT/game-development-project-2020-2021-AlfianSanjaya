@@ -14,20 +14,11 @@ namespace QuestMania.Screens
 
         public override State State => State.Victory;
 
-        public override void LoadContent()
+        public VictoryScreen(Button restart, Button menu, Label title)
         {
-            base.LoadContent();
-
-            string title = "Huzza! Victory!";
-            titleLabel = new Label(title, new Vector2((Global.ScreenWidth / 2) - (titleFont.MeasureString(title).X / 2), 150), titleFont);
-
-            int centerX = Global.ScreenWidth / 2 - buttonTexture.Width / 2;
-            int centerY = Global.ScreenHeight / 2 - buttonTexture.Height / 2;
-            restartButton = new Button("Restart level",
-                                    new Vector2(centerX, centerY),
-                                    buttonTexture,
-                                    buttonFont);
-            menuButton = new Button("Back to menu", new Vector2(centerX, centerY + (buttonTexture.Height * 3 / 2)), buttonTexture, buttonFont);
+            restartButton = restart;
+            menuButton = menu;
+            titleLabel = title;
 
             components.Add(titleLabel);
             components.Add(restartButton);
@@ -35,6 +26,31 @@ namespace QuestMania.Screens
 
             restartButton.Click += RestartButton_Click;
             menuButton.Click += MenuButton_Click;
+        }
+
+        public override void LoadContent()
+        {
+            base.LoadContent();
+
+            foreach (Component component in components)
+            {
+                if (component is Button)
+                    component.LoadContent(buttonTexture, buttonFont);
+                if (component is Label)
+                    component.LoadContent(titleFont);
+            }
+
+            PlaceUI();
+        }
+
+        public void PlaceUI()
+        {
+            int centerX = Global.ScreenWidth / 2 - buttonTexture.Width / 2;
+            int centerY = Global.ScreenHeight / 2 - buttonTexture.Height / 2;
+
+            restartButton.SetPosition(centerX, centerY);
+            menuButton.SetPosition(centerX, centerY + (buttonTexture.Height* 3 / 2));
+            titleLabel.SetPosition((int)((Global.ScreenWidth / 2) - (titleFont.MeasureString(titleLabel.Text).X / 2)), 150);
         }
 
         public override void Update(GameTime gameTime)

@@ -15,19 +15,12 @@ namespace QuestMania.Screens
 
         public override State State => State.Select;
 
-        public override void LoadContent()
+        public SelectLevelScreen(Button level1, Button level2, Button back, Label title)
         {
-            base.LoadContent();
-            backgroundTexture = Global.Content.Load<Texture2D>("Background/background-1");
-
-            int centerX = Global.ScreenWidth / 2 - buttonTexture.Width / 2;
-            int centerY = Global.ScreenHeight / 2 - buttonTexture.Height / 2;
-            levelOneButton = new Button("Level 1", new Vector2(centerX, centerY), buttonTexture, buttonFont);
-            levelTwoButton = new Button("Level 2", new Vector2(centerX, centerY + (buttonTexture.Height * 3 / 2)), buttonTexture, buttonFont);
-            backButton = new Button("Back", new Vector2(20, 10), buttonTexture, buttonFont);
-
-            string title = "Select a level";
-            titleLabel = new Label(title, new Vector2((Global.ScreenWidth / 2) - (titleFont.MeasureString(title).X / 2), 150), titleFont);
+            levelOneButton = level1;
+            levelTwoButton = level2;
+            backButton = back;
+            titleLabel = title;
 
             components.Add(levelOneButton);
             components.Add(levelTwoButton);
@@ -38,6 +31,33 @@ namespace QuestMania.Screens
             levelOneButton.Click += LevelOneButton_Click;
             levelTwoButton.Click += LevelTwoButton_Click;
             backButton.Click += BackButton_Click;
+        }
+
+        public override void LoadContent()
+        {
+            base.LoadContent();
+            backgroundTexture = Global.Content.Load<Texture2D>("Background/background-1");
+
+            foreach (Component component in components)
+            {
+                if (component is Button)
+                    component.LoadContent(buttonTexture, buttonFont);
+                if (component is Label)
+                    component.LoadContent(titleFont);
+            }
+
+            PlaceUI();
+        }
+
+        public void PlaceUI()
+        {
+            int centerX = Global.ScreenWidth / 2 - buttonTexture.Width / 2;
+            int centerY = Global.ScreenHeight / 2 - buttonTexture.Height / 2;
+
+            levelOneButton.SetPosition(centerX, centerY);
+            levelTwoButton.SetPosition(centerX, centerY + (buttonTexture.Height * 3 / 2));
+            backButton.SetPosition(20, 10);
+            titleLabel.SetPosition((int)((Global.ScreenWidth / 2) - (titleFont.MeasureString(titleLabel.Text).X / 2)), 150);
         }
 
         public override void Update(GameTime gameTime)

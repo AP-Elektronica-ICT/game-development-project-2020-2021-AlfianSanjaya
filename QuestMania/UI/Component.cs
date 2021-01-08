@@ -9,7 +9,9 @@ namespace QuestMania.UI
     public abstract class Component
     {
         protected Vector2 Position;
-        public abstract void Update();
+        public virtual void LoadContent(Texture2D texture, SpriteFont font) { }
+        public virtual void LoadContent(SpriteFont font) { }
+        public virtual void Update() { }
         public abstract void Draw();
     }
 }
