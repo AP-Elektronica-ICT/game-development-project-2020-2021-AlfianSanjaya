@@ -1,8 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using QuestMania.Commands;
 using QuestMania.FileSystem;
 using QuestMania.LevelDesign;
 using System;
+using System.Collections.Generic;
 
 namespace QuestMania.LevelDesign
 {
@@ -15,12 +17,14 @@ namespace QuestMania.LevelDesign
 
         public Level Level { get; set; }
 
+        //private List<IG>
+
         //private Camera camera;
 
-        public World(Hero player, Level newLevel)
+        public World(Hero player, Level newLevel, List<IGameCommand> commands)
         {
             Hero = player;
-            Hero.LoadContent();
+            Hero.LoadContent(commands);
 
             Level = newLevel;
             Level.LoadWorld(FileManager.GetPath(@$"Content\Levels\map-{ Level.ID }.json"),
@@ -28,9 +32,9 @@ namespace QuestMania.LevelDesign
         }
 
         public void Update(GameTime gameTime)
-        {          
+        {
             Global.Camera.Update(Hero.Position, Level.LevelWidth, Level.LevelHeight);
-            
+
             if (Hero.IsDead == false)
             {
                 // Check for collision
@@ -75,11 +79,6 @@ namespace QuestMania.LevelDesign
             Level.DrawWorld();
 
             Hero.Draw();
-        }
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
+        } 
     }
 }

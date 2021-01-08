@@ -1,24 +1,19 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using QuestMania.Input;
 using QuestMania.LevelDesign;
-using QuestMania.UI;
 using QuestMania.States;
-using System.Collections.Generic;
 
 namespace QuestMania.Screens
 {
     public class GameScreen : Screen
     {
-        private World currentWorld;
-
-        private World[] worlds =
-        {
-            new World(Factory.CreateHero(1, 6), new Level(1)),
-            new World(Factory.CreateHero(0, 1), new Level(2))
-        };
-
         public override State State => State.Game;
+        private World currentWorld;
+        private World[] worlds;
+
+        public GameScreen(World[] newWorlds)
+        {
+            worlds = newWorlds;
+        }
 
         public override void Update(GameTime gameTime)
         {

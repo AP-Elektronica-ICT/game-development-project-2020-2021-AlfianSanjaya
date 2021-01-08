@@ -17,7 +17,7 @@ namespace QuestMania
 
         #region Animation
         private AnimationPlayer animationPlayer = new AnimationPlayer();
-        private Animation currentAnimation; //, idleAnimation, runAnimation, jump;
+        private Animation currentAnimation;
         private List<Animation> animations = new List<Animation>();
         #endregion
 
@@ -66,10 +66,10 @@ namespace QuestMania
             Position = SpawnPosition;
         }
 
-        public void LoadContent()
+        public void LoadContent(List<IGameCommand> commands)
         {
             LoadAnimations();
-            LoadCommands();
+            LoadCommands(commands);
         }
 
         /// <summary>
@@ -86,13 +86,16 @@ namespace QuestMania
         /// <summary>
         /// Load the commands that are going to be used
         /// </summary>
-        public void LoadCommands()
+        public void LoadCommands(List<IGameCommand> commands)
         {
-            moveCommand = new MoveCommand();
-            jumpCommand = new JumpCommand();
-
-            moveCommand.SetContext(this);
-            jumpCommand.SetContext(this);
+            foreach (IGameCommand command in commands)
+            {
+                command.SetContext(this);
+                if (command is MoveCommand)
+                    moveCommand = command;
+                if (command is JumpCommand)
+                    jumpCommand = command;
+            }
         }
 
         #region Update
@@ -230,7 +233,7 @@ namespace QuestMania
             //Debug.WriteLine($"Position { (int)Position.X / 64},{ (int)Position.Y / 64}");
 
             Debug.WriteLine(Velocity);
-            Debug.WriteLine(Position);
+            //Debug.WriteLine(Position);
         }
 
         #region Draw

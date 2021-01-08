@@ -5,6 +5,7 @@ using QuestMania.Animation2D;
 using QuestMania.Animation2D.HeroAnimations;
 using QuestMania.Camera2D;
 using QuestMania.Commands;
+using QuestMania.LevelDesign;
 using QuestMania.Screens;
 using QuestMania.States;
 using System.Collections.Generic;
@@ -30,12 +31,15 @@ namespace QuestMania
             InitializeGlobals();
             InitializeHeroGlobals();
 
-
             List<Screen> screens = new List<Screen>() 
             { 
                 new MenuScreen(this), 
                 new SelectLevelScreen(),
-                new GameScreen(),
+                new GameScreen(new World[]
+                {
+                    new World(Factory.CreateHero(1, 6), new Level(1), new List<IGameCommand>() { new MoveCommand(), new JumpCommand() }),
+                    new World(Factory.CreateHero(0, 1), new Level(2), new List<IGameCommand>() { new MoveCommand(), new JumpCommand() })
+                }),
                 new GameOverScreen(),
                 new VictoryScreen()
             }; 
@@ -58,6 +62,13 @@ namespace QuestMania
             graphics.ApplyChanges();
         }
 
+        private void InitializeGlobals()
+        {
+            Global.Content = Content;
+            Global.SpriteBatch = new SpriteBatch(GraphicsDevice);
+            Global.Camera = new Camera(GraphicsDevice.Viewport);
+        }
+
         private void InitializeHeroGlobals()
         {           
             Global.Hero.Animations = new List<Animation>()
@@ -67,21 +78,6 @@ namespace QuestMania
                 new JumpAnimation(Global.Content.Load<Texture2D>("Player/jump-sheet"), 1, 1),
                 new FallAnimation(Global.Content.Load<Texture2D>("Player/fall-sheet"), 1, 1)
             };
-
-            List<IGameCommand> commands = new List<IGameCommand>()
-            {
-                new MoveCommand(),
-                new JumpCommand()
-            };
-
-            Global.Hero.GameCommands = commands;
-        }
-
-        private void InitializeGlobals()
-        {
-            Global.Content = Content;
-            Global.SpriteBatch = new SpriteBatch(GraphicsDevice);
-            Global.Camera = new Camera(GraphicsDevice.Viewport);
         }
 
         protected override void LoadContent()
