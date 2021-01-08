@@ -111,3 +111,4 @@ C:\Users\32495\Desktop\GameDev\QuestMania\QuestMania\bin\Debug\netcoreapp3.1\Con
 C:\Users\32495\Desktop\GameDev\QuestMania\QuestMania\bin\Debug\netcoreapp3.1\Content\Blocks\spike.xnb
 C:\Users\32495\Desktop\GameDev\QuestMania\QuestMania\bin\Debug\netcoreapp3.1\Content\Player\fall-sheet.xnb
 C:\Users\32495\Desktop\GameDev\QuestMania\QuestMania\bin\Debug\netcoreapp3.1\Content\Player\jump-sheet.xnb
+C:\Users\32495\Desktop\GameDev\QuestMania\QuestMania\bin\Debug\netcoreapp3.1\Content\Background\map-background-1.xnb

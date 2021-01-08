@@ -24,7 +24,7 @@ namespace QuestMania.LevelDesign
 
             Level = newLevel;
             Level.LoadWorld(FileManager.GetPath(@$"Content\Levels\map-{ Level.ID }.json"),
-                            Global.Content.Load<Texture2D>("Background/background-test"));
+                            Global.Content.Load<Texture2D>($"Background/map-background-1"));
         }
 
         public void Update(GameTime gameTime)

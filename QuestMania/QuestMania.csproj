@@ -22,7 +22,6 @@
     <MonoGameContentReference Include="Content\Content.mgcb" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\Background\" />
     <Folder Include="Content\Blocks\" />
   </ItemGroup>
 </Project>

@@ -29,9 +29,7 @@ namespace QuestMania.LevelDesign
 
             LevelHeight = TileArray.GetLength(0) * 64;
             LevelWidth = TileArray.GetLength(1) * 64;
-            backgroundTexture = newBackgroundTexture;
-            Debug.WriteLine($"Height: {LevelHeight} Column: {LevelWidth} ");
-
+            backgroundTexture = newBackgroundTexture;          
             CreateWorld();
         }
 
